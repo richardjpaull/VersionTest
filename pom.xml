@@ -37,6 +37,9 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <connection>scm:git:https://github.com/richardjpaull/VersionTest.git</connection>
+    </scm>
     <build>
         <plugins>
             <plugin>
