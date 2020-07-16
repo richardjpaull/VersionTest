@@ -42,7 +42,7 @@
         <url>https://github.com/richardjpaull/VersionTest</url>
         <connection>scm:git:git://github.com/richardjpaull/VersionTest.git</connection>
         <developerConnection>scm:git:git@github.com:richardjpaull/VersionTest.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>@{project.version}</tag>
     </scm>
     <build>
         <plugins>
@@ -50,39 +50,43 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>buildnumber-maven-plugin</artifactId>
-                        <version>1.4</version>
-                        <executions>
-                            <execution>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>create</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <doCheck>true</doCheck>
-                            <doUpdate>true</doUpdate>
-
-                        </configuration>
-                    </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.1</version>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.0.0</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
                         </manifest>
-                        <manifestEntries>
-                            <Implementation-Build>${buildNumber}</Implementation-Build>
-                        </manifestEntries>
                     </archive>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>
+                            package
+                        </phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <goals>pre-integration-tests</goals>
+                    <preparationGoals>package</preparationGoals>
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                    <remoteTagging>true</remoteTagging>
+                </configuration>
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.1</version>
+
             </plugin>
         </plugins>
 
