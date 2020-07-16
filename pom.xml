@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.richard.version</groupId>
     <artifactId>versioningapi</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
     <name>VersionTest</name>
     <description>Demo project for Spring Boot with Versioning</description>
 
@@ -41,7 +41,7 @@
         <url>https://github.com/richardjpaull/VersionTest</url>
         <connection>scm:git:git://github.com/richardjpaull/VersionTest.git</connection>
         <developerConnection>scm:git:git@github.com:richardjpaull/VersionTest.git</developerConnection>
-        <tag>0.0.3</tag>
+        <tag>@{project.version}</tag>
     </scm>
     <build>
         <plugins>
