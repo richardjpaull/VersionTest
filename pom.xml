@@ -11,7 +11,7 @@
     <groupId>com.richard.version</groupId>
     <artifactId>versioningapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>versioningapi</name>
+    <name>VersionTest</name>
     <description>Demo project for Spring Boot with Versioning</description>
 
     <properties>
