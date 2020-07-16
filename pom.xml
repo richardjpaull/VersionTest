@@ -37,8 +37,12 @@
         </dependency>
     </dependencies>
 
+
     <scm>
-        <connection>scm:git:https://github.com/richardjpaull/VersionTest.git</connection>
+        <url>https://github.com/richardjpaull/VersionTest</url>
+        <connection>scm:git:git://github.com/richardjpaull/VersionTest.git</connection>
+        <developerConnection>scm:git:git@github.com:richardjpaull/VersionTest.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
     <build>
         <plugins>
